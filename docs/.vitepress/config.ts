@@ -6,9 +6,21 @@ export default defineConfig({
     lang: 'ru-RU',
 
     themeConfig: {
+
+        sidebar: {
+            '/guide/': sidebarGuide(),
+        },
+
         nav: [
-            { text: 'Начало знакомства', link: '/guide/getting-started.html' },
-            { text: 'Changelog', link: 'https://github.com/azabroflovski/bulavka-integration-docs/blob/main/CHANGELOG.md' },
+            { text: 'Введение', link: '/guide/getting-started.html' },
+            { text: 'API', link: '/api/getting-started.html' },
+            {
+                text: 'Полезные ссылки',
+                items: [
+                    { text: 'Личный кабинет', link: 'https://business.bulavka.uz/console' },
+                    { text: 'Changelog', link: 'https://github.com/azabroflovski/bulavka-integration-docs/blob/main/CHANGELOG.md' },
+                ]
+            }
         ],
 
         socialLinks: [
@@ -24,3 +36,28 @@ export default defineConfig({
         }
     }
 })
+
+function sidebarGuide() {
+    return [
+        {
+            text: 'Начало знакомства',
+            items: [
+                { text: 'Введение', link: '/guide/getting-started' },
+                { text: 'Авторизация', link: '/guide/api-token' },
+            ]
+        },
+        {
+            text: 'API',
+            items: [
+                { text: 'Добавить товар', link: '/api' },
+                { text: 'Детали товара', link: '/api' },
+                { text: 'Категории', link: '/api' },
+                { text: 'Размерный ряд', link: '/api' },
+                { text: 'Бренды', link: '/api' },
+                { text: 'Фото', link: '/api' },
+                { text: 'Теги', link: '/api' },
+                { text: 'Характеристики', link: '/api' },
+            ]
+        },
+    ]
+}
