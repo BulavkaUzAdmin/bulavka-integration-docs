@@ -1,0 +1,33 @@
+{
+  "name": "bulavka-integration-docs",
+  "version": "1.0.0",
+  "description": "Bulavka API integration documentation",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "serve": "vitepress serve docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azabroflovski/bulavka-integration-docs.git"
+  },
+  "keywords": [
+    "bulavka",
+    "marketplace",
+    "documentation",
+    "azabroflovski"
+  ],
+  "author": "azabroflovski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/azabroflovski/bulavka-integration-docs/issues"
+  },
+  "homepage": "https://github.com/azabroflovski/bulavka-integration-docs#readme",
+  "devDependencies": {
+    "vitepress": "^1.0.0-alpha.2"
+  },
+  "dependencies": {
+    "vue": "^3.2.37"
+  }
+}
