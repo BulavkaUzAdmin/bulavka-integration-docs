@@ -52,7 +52,7 @@ function sidebarGuide() {
             text: 'API',
             items: [
                 { text: 'Добавить товар', link: '/api/add-product' },
-                { text: 'Детали товара', link: '/api' },
+                { text: 'Детали товара', link: '/api/get-product' },
                 { text: 'Категории', link: '/api' },
                 { text: 'Размерный ряд', link: '/api' },
                 { text: 'Бренды', link: '/api' },

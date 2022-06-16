@@ -1,6 +1,6 @@
 <template>
-  <div class="request-table" :class="{ 'is-open': !isOpen }">
-    <h6>Request body &nbsp; <code>application/json</code></h6>
+  <div class="request-table" :class="isCollapsable ? { 'is-open': isOpen } : {}">
+    <h6>{{ title }} &nbsp; <code v-if="postfix">{{ postfix }}</code></h6>
     <table>
       <thead>
       <tr>
@@ -29,8 +29,8 @@
       </tbody>
     </table>
 
-    <a @click="isOpen = !isOpen" class="request-table__collapse-btn">
-      {{ isOpen ? 'Развернуть' : 'Скрыть' }}
+    <a v-if="isCollapsable" @click="isOpen = !isOpen" class="request-table__collapse-btn">
+      {{ isOpen ? 'Скрыть' : 'Развернуть' }}
     </a>
   </div>
 </template>
@@ -38,13 +38,20 @@
 <script lang="ts" setup>
   import { defineProps, ref } from 'vue'
 
-  const { data } = defineProps({
+  const { data, title, postfix } = defineProps({
     data: {
-      type: Object
-    }
+      type: Array
+    },
+
+    title: {
+      type: String
+    },
+
+    postfix: String
   })
 
   const isOpen = ref(false)
+  const isCollapsable = data.length > 7
 </script>
 
 <style lang="scss">

@@ -14,44 +14,24 @@
       </div>
     </div>
 
-    <request-table :data="request.body" />
+    <request-table
+      v-if="request.body"
+      :data="request.body"
+      title="Request body"
+      postfix="application/json"
+    />
 
-<!--    <div>-->
-<!--      <div class="request-body">-->
-<!--        <h6>Request body &nbsp; <code>application/json</code></h6>-->
-<!--        <table>-->
-<!--          <thead>-->
-<!--          <tr>-->
-<!--            <th style="text-align: left;">Свойство</th>-->
-<!--            <th>Тип</th>-->
-<!--            <th style="text-align: left;">Описание</th>-->
-<!--          </tr>-->
-<!--          </thead>-->
-<!--          <tbody>-->
+    <request-table
+      v-if="request.pathParams"
+      :data="request.pathParams"
+      title="Path params"
+    />
 
-<!--          <template v-for="item in request.body" :key="item.key">-->
-<!--            <tr :class="{ 'has-children': item.children }">-->
-<!--              <td style="white-space: nowrap"><b>{{ item.key }}</b></td>-->
-<!--              <td style="font-size: 12px; text-align: center"><code>{{ item.type }}</code></td>-->
-<!--              <td>{{ item.description }}</td>-->
-<!--            </tr>-->
-
-<!--            <template v-if="item.children">-->
-<!--              <tr v-for="childItem in item.children" class="has-children">-->
-<!--                <td style="white-space: nowrap">&nbsp; &nbsp; <b>> {{ childItem.key }}</b></td>-->
-<!--                <td style="font-size: 12px; text-align: center"><code>{{ childItem.type }}</code></td>-->
-<!--                <td>{{ childItem.description }}</td>-->
-<!--              </tr>-->
-<!--            </template>-->
-<!--          </template>-->
-<!--          </tbody>-->
-<!--        </table>-->
-<!--      </div>-->
-
-<!--      <div style="text-align: center; font-size: 14px; border-bottom: 1px dashed #e8e8e8; cursor: pointer">-->
-<!--        Раскрыть-->
-<!--      </div>-->
-<!--    </div>-->
+    <request-table
+        v-if="request.queryParams"
+        :data="request.queryParams"
+        title="Query params"
+    />
   </div>
 </template>
 
@@ -70,15 +50,13 @@
   const request = appContext.config.globalProperties.$apiEndpoints[name]
 
   const requestMethod = request.method
-  const requestUrl = 'https://test.api.bulavka.uz/bulavka-rpc/' + request.path
+  const requestUrl = 'test.api.bulavka.uz/bulavka-rpc/' + request.path
 </script>
 
 <style lang="scss">
   table {
     font-size: 14px;
   }
-
-
 
   .request-block {
     display: flex;
@@ -97,6 +75,7 @@
       margin-left: 20px;
       font-size: 14px;
       user-select: none;
+      white-space: nowrap;
     }
 
     &__copy-btn {
