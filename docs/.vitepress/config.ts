@@ -9,6 +9,7 @@ export default defineConfig({
 
         sidebar: {
             '/guide/': sidebarGuide(),
+            '/api/': sidebarGuide()
         },
 
         nav: [
@@ -50,7 +51,7 @@ function sidebarGuide() {
         {
             text: 'API',
             items: [
-                { text: 'Добавить товар', link: '/api' },
+                { text: 'Добавить товар', link: '/api/add-product' },
                 { text: 'Детали товара', link: '/api' },
                 { text: 'Категории', link: '/api' },
                 { text: 'Размерный ряд', link: '/api' },

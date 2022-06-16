@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/azabroflovski/bulavka-integration-docs#readme",
   "devDependencies": {
+    "sass": "^1.52.3",
     "vitepress": "^1.0.0-alpha.2"
   },
   "dependencies": {
