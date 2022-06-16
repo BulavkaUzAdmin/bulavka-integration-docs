@@ -44,6 +44,7 @@ function sidebarGuide() {
             items: [
                 { text: 'Введение', link: '/guide/getting-started' },
                 { text: 'Авторизация', link: '/guide/api-token' },
+                { text: 'Работа с API', link: '/guide/api-introduction' },
             ]
         },
         {
