@@ -13,8 +13,8 @@ export default defineConfig({
         },
 
         nav: [
-            { text: 'Введение', link: '/guide/getting-started.html' },
-            { text: 'API', link: '/api/getting-started.html' },
+            { text: 'Введение', link: '/guide/getting-started' },
+            { text: 'API', link: '/api/introduction' },
             {
                 text: 'Полезные ссылки',
                 items: [
@@ -50,15 +50,18 @@ function sidebarGuide() {
         },
         {
             text: 'API',
+
             items: [
                 { text: 'Добавить товар', link: '/api/add-product' },
                 { text: 'Детали товара', link: '/api/get-product' },
-                { text: 'Категории', link: '/api' },
-                { text: 'Размерный ряд', link: '/api' },
-                { text: 'Бренды', link: '/api' },
-                { text: 'Фото', link: '/api' },
-                { text: 'Теги', link: '/api' },
-                { text: 'Характеристики', link: '/api' },
+                { text: 'Категории', link: '/api/categories' },
+                { text: 'Размерный ряд', link: '/api/sizes-by-category' },
+                { text: 'Бренды', link: '/api/brands' },
+                { text: 'Добавить фото', link: '/api/add-media' },
+                { text: 'Заменить фото', link: '/api/replace-media' },
+                { text: 'Удалить фото', link: '/api/remove-media' },
+                { text: 'Теги', link: '/api/tags' },
+                { text: 'Характеристики', link: '/api/parameters' },
             ]
         },
     ]

@@ -10,7 +10,7 @@
       </div>
 
       <div class="request-block__actions">
-        <button class="request-block__copy-btn">Скопировать</button>
+        <button class="request-block__copy-btn">Copy</button>
       </div>
     </div>
 
@@ -24,13 +24,13 @@
     <request-table
       v-if="request.pathParams"
       :data="request.pathParams"
-      title="Path params"
+      title="URL Segments"
     />
 
     <request-table
         v-if="request.queryParams"
         :data="request.queryParams"
-        title="Query params"
+        title="Query Parameters"
     />
   </div>
 </template>
@@ -74,8 +74,9 @@
     &__url {
       margin-left: 20px;
       font-size: 14px;
+      font-weight: 500;
       user-select: none;
-      white-space: nowrap;
+      white-space: nowrap
     }
 
     &__copy-btn {

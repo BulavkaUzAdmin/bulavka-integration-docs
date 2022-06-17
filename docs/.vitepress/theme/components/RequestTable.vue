@@ -1,5 +1,5 @@
 <template>
-  <div class="request-table" :class="isCollapsable ? { 'is-open': isOpen } : {}">
+  <div class="request-table" :class="isCollapsable ? { 'collapsed': !isOpen } : {}">
     <h6>{{ title }} &nbsp; <code v-if="postfix">{{ postfix }}</code></h6>
     <table>
       <thead>
@@ -76,14 +76,14 @@
     }
 
 
-    &:not(.is-open) table {
+    &.collapsed table {
       &::after {
         background: linear-gradient(transparent 100px, white);
         pointer-events: auto;
       }
     }
 
-    &.is-open table {
+    &:not(.collapsed) table {
       max-height: 3000px;
     }
 

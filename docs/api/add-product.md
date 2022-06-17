@@ -4,7 +4,7 @@
 
 <request-block name="add-product" />
 
-::: details Нажмите что бы открыть пример
+::: details Пример тело запроса (Request body)
 ```json
 {
   "title": "Test product",
@@ -96,5 +96,42 @@
     }
   ]
 }
+```
+:::
+
+<br>
+
+----
+
+### Response
+
+::: details 200 OK
+```json
+{
+    "id": Number,
+    "title": String,
+    "status": String,
+    "inStock": Number, // 0 или 1, наличие товара на складе
+    "price": Number,
+    "initialPrice": Number,
+    "commission": Number,
+    "sales": Number,
+    "returns": Number,
+    "unit": String,
+    "seller": {
+        "id": Number,
+        "firstName": String,
+        "lastName": String,
+        "type": String,
+        "phone": String
+    },
+    "created": Number // Unix time
+}
+```
+:::
+
+::: details 401 Unauthorized
+```
+The supplied authentication is invalid
 ```
 :::

@@ -80,7 +80,7 @@ export default {
         {
             key: 'tags',
             type: 'Array',
-            description: 'ID тегов на стороне Bulavka'
+            description: 'ID тегов'
         },
         {
             key: 'unit',
@@ -157,17 +157,17 @@ export default {
                 {
                     key: 'parameterId',
                     type: 'Number',
-                    description: 'ID параметра на стороне Bulavka',
+                    description: 'ID параметра',
                 },
                 {
                     key: 'valueId',
                     type: 'Number',
-                    description: 'ID значения параметра на стороне Bulavka',
+                    description: 'ID значения параметра',
                 },
                 {
                     key: 'customValue',
                     type: 'Number',
-                    description: 'Произвольное значение параметра на стороне Bulavka',
+                    description: 'Произвольное значение параметра',
                 },
             ]
         },
