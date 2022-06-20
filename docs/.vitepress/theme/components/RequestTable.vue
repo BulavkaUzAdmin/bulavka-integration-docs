@@ -55,6 +55,14 @@
 </script>
 
 <style lang="scss">
+  :root {
+    --table-overflow-color: white;
+  }
+
+  html.dark {
+    --table-overflow-color: black;
+  }
+
   .request-table {
     table {
       max-height: 400px;
@@ -78,7 +86,7 @@
 
     &.collapsed table {
       &::after {
-        background: linear-gradient(transparent 100px, white);
+        background: linear-gradient(transparent 100px, var(--table-overflow-color));
         pointer-events: auto;
       }
     }
