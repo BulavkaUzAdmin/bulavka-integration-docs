@@ -8,13 +8,13 @@
 Базовым URL адресом сервера является: 
 
 ```
-https://api.bulavka.uz/bulavka-rpc
+https://test.api.bulavka.uz/bulavka-rpc
 ```
 
 Запросы и ответы к API выполняются посредством 
 протокола [HTTP](https://ru.wikipedia.org/wiki/HTTP) в формате [JSON](https://ru.wikipedia.org/wiki/JSON)
 
-> Все запросы по сети передаются по безопасному протоколу HTTPS
+> Все запросы по сети должны передаваться по безопасному протоколу HTTPS
 
 ::: warning Обратите внимание
 Для корректной работы всех последующих примеров вам потребуется API ключ.
