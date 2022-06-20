@@ -24,13 +24,13 @@
   }
 
   .request-method_get {
-    background-color: #d5f7cd;
-    color: #5fa749;
+    background-color: var(--vp-c-green-dimm-1);
+    color: var(--vp-c-text-1);
   }
 
   .request-method_post {
-    background-color: #fdf0b3;
-    color: #a18e33;
+    background-color: var(--vp-custom-block-warning-border);
+    color: var(--vp-custom-block-warning-text);
   }
 
   .request-method_put {
@@ -39,7 +39,7 @@
   }
 
   .request-method_delete {
-    background-color: #fbc6c6;
-    color: #f17070;
+    background-color: var(--vp-custom-block-danger-border);
+    color: var(--vp-custom-block-danger-text);
   }
 </style>

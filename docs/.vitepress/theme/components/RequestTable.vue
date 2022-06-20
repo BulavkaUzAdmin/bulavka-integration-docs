@@ -13,14 +13,26 @@
 
       <template v-for="item in data" :key="item.key">
         <tr :class="{ 'has-children': item.children }">
-          <td style="white-space: nowrap"><b>{{ item.key }}</b></td>
+          <td style="white-space: nowrap">
+            <b style="margin-right: 4px;">{{ item.key }}</b>
+
+            <span v-if="item.required" class="badge badge-warning">
+              required
+            </span>
+
+            <span v-if="item.optional" class="badge badge-primary">
+              optional
+            </span>
+          </td>
           <td style="font-size: 12px; text-align: center"><code>{{ item.type }}</code></td>
           <td>{{ item.description }}</td>
         </tr>
 
         <template v-if="item.children">
           <tr v-for="childItem in item.children" class="has-children">
-            <td style="white-space: nowrap">&nbsp; &nbsp; <b>> {{ childItem.key }}</b></td>
+            <td style="white-space: nowrap">&nbsp; &nbsp;
+              <b>> {{ childItem.key }}</b>
+            </td>
             <td style="font-size: 12px; text-align: center"><code>{{ childItem.type }}</code></td>
             <td>{{ childItem.description }}</td>
           </tr>
@@ -63,6 +75,24 @@
     --table-overflow-color: black;
   }
 
+  .badge {
+    padding: 2px;
+    border-radius: 4px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 1;
+  }
+
+  .badge-primary {
+    background: var(--vp-c-green-dimm-1);
+    color: var(--vp-c-text-1);
+  }
+
+  .badge-warning {
+    background: var(--vp-c-yellow-dimm-1);
+    color: var(blue);
+  }
+
   .request-table {
     table {
       max-height: 400px;
@@ -86,7 +116,7 @@
 
     &.collapsed table {
       &::after {
-        background: linear-gradient(transparent 100px, var(--table-overflow-color));
+        background: linear-gradient(transparent 100px, var(--vp-c-bg));
         pointer-events: auto;
       }
     }

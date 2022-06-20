@@ -27,6 +27,7 @@
   ]
 }
 ```
+:::
 
 ::: details 401 Unauthorized
 ```

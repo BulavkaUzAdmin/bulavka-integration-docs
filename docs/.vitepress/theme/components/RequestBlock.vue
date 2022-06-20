@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref, Ref, computed, defineProps, getCurrentInstance } from 'vue'
+  import { ref, Ref, defineProps, getCurrentInstance } from 'vue'
   import RequestMethod from './RequestMethod.vue'
   import RequestTable from "./RequestTable.vue";
 
