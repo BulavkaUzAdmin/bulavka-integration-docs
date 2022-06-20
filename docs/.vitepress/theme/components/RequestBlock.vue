@@ -10,7 +10,9 @@
       </div>
 
       <div class="request-block__actions">
-        <button class="request-block__copy-btn">Copy</button>
+        <button @click="copyUrl" class="request-block__copy-btn" :class="{ copied: copyText === 'Copied' }">
+          {{ copyText }}
+        </button>
       </div>
     </div>
 
@@ -36,7 +38,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { defineProps, getCurrentInstance } from 'vue'
+  import { ref, Ref, computed, defineProps, getCurrentInstance } from 'vue'
   import RequestMethod from './RequestMethod.vue'
   import RequestTable from "./RequestTable.vue";
 
@@ -46,11 +48,27 @@
     }
   })
 
+  const copyText: Ref = ref('Copy')
+
   const { appContext } = getCurrentInstance()
   const request = appContext.config.globalProperties.$apiEndpoints[name]
 
   const requestMethod = request.method
   const requestUrl = 'test.api.bulavka.uz/bulavka-rpc/' + request.path
+
+  function copyUrl() {
+    navigator.clipboard.writeText(requestUrl)
+        .then(() => {
+          copyText.value = 'Copied'
+
+          setTimeout(() => {
+            copyText.value = 'Copy'
+          }, 5000)
+        })
+        .catch(() => {
+          copyText.value = 'Error'
+        })
+  }
 </script>
 
 <style lang="scss">
@@ -76,13 +94,23 @@
       font-size: 14px;
       font-weight: 500;
       user-select: none;
-      white-space: nowrap
+      white-space: nowrap;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
     &__copy-btn {
       border-bottom: 1px dashed #ccc;
       transition: 200ms ease;
       color: #999;
+
+      &.copied {
+        color: #5fa749;
+        pointer-events: none;
+        border-bottom-color: #5fa749;
+      }
 
       &:hover {
         color: #333;

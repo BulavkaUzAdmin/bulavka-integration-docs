@@ -4,9 +4,13 @@ export default defineConfig({
     title: 'Bulavka',
     description: 'Гайд / техническая документация для разработчиков',
     lang: 'ru-RU',
+    lastUpdated: true,
 
     themeConfig: {
-
+        editLink: {
+            pattern: 'https://github.com/azabroflovski/bulavka-integration-docs/edit/master/docs/:path',
+            text: 'Edit this page on GitHub'
+        },
         sidebar: {
             '/guide/': sidebarGuide(),
             '/api/': sidebarGuide()
