@@ -1,4 +1,4 @@
-const arrayOfImages = [
+export const arrayOfImages = [
     {
         key: 'image',
         type: 'String',

@@ -11,9 +11,11 @@ export default defineConfig({
             pattern: 'https://github.com/azabroflovski/bulavka-integration-docs/edit/master/docs/:path',
             text: 'Edit this page on GitHub'
         },
+
         sidebar: {
-            '/guide/': sidebarGuide(),
-            '/api/': sidebarGuide()
+            '/guide/': sidebarList(),
+            '/api/': sidebarList(),
+            '/advanced/': sidebarList(),
         },
 
         nav: [
@@ -42,7 +44,7 @@ export default defineConfig({
     }
 })
 
-function sidebarGuide() {
+function sidebarList() {
     return [
         {
             text: 'Начало знакомства',
@@ -54,8 +56,8 @@ function sidebarGuide() {
         },
         {
             text: 'API',
-
             items: [
+                { text: 'Импорт', link: '/api/import-service' },
                 { text: 'Добавить товар', link: '/api/add-product' },
                 { text: 'Детали товара', link: '/api/get-product' },
                 { text: 'Категории', link: '/api/categories' },
@@ -66,6 +68,13 @@ function sidebarGuide() {
                 { text: 'Удалить фото', link: '/api/remove-media' },
                 { text: 'Теги', link: '/api/tags' },
                 { text: 'Характеристики', link: '/api/parameters' },
+            ]
+        },
+
+        {
+            text: 'Продвинутые',
+            items: [
+                { text: 'Вебхуки', link: '/advanced/webhooks' },
             ]
         },
     ]

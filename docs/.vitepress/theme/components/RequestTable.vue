@@ -10,25 +10,27 @@
       </thead>
       <tbody>
 
-      <template v-for="item in data" :key="item.key">
-        <tr :class="{ 'has-children': item.children }">
-          <td style="white-space: nowrap">
-            <request-table-property :property="item" />
-          </td>
-          <td>{{ item.description }}</td>
-        </tr>
+<!--      <template v-for="item in data" :key="item.key">-->
+<!--        <tr :class="{ 'has-children': item.children }">-->
+<!--          <td style="white-space: nowrap">-->
+<!--            <request-table-property :property="item" />-->
+<!--          </td>-->
+<!--          <td>{{ item.description }}</td>-->
+<!--        </tr>-->
 
-        <template v-if="item.children">
-          <tr v-for="childItem in item.children" class="has-children">
-            <td class="is-child" style="white-space: nowrap">
-              <request-table-property :property="childItem" is-child />
-            </td>
-            <td>
-              {{ childItem.description }}
-            </td>
-          </tr>
-        </template>
-      </template>
+<!--        <template v-if="item.children">-->
+<!--          <tr v-for="childItem in item.children" class="has-children">-->
+<!--            <td class="is-child" style="white-space: nowrap">-->
+<!--              <request-table-property :property="childItem" is-child />-->
+<!--            </td>-->
+<!--            <td>-->
+<!--              {{ childItem.description }}-->
+<!--            </td>-->
+<!--          </tr>-->
+<!--        </template>-->
+<!--      </template>-->
+
+      <request-table-row :data="data" />
       </tbody>
     </table>
 
@@ -40,7 +42,7 @@
 
 <script lang="ts" setup>
   import { defineProps, ref } from 'vue'
-  import RequestTableProperty from "./RequestTableProperty.vue";
+  import RequestTableRow from "./RequestTableRow.vue"
 
   const { data, title, postfix } = defineProps({
     data: {
@@ -106,12 +108,7 @@
         transition: 500ms ease;
         pointer-events: none;
       }
-
-      td.is-child {
-        padding-left: 36px;
-      }
     }
-
 
     &.collapsed table {
       &::after {

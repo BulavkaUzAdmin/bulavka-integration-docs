@@ -1,3 +1,4 @@
+import importService from './import-service'
 import addProduct from './add-product'
 import getProduct from './get-product'
 import categories from './categories'
@@ -8,6 +9,7 @@ import { sizesByCategory } from './sizes'
 import { parametersByCategory } from './parameters'
 
 export default {
+    'import-service': importService,
     'add-product': addProduct,
     'get-product': getProduct,
     'categories': categories,

@@ -95,10 +95,6 @@
       font-weight: 500;
       user-select: none;
       white-space: nowrap;
-
-      &:hover {
-        cursor: pointer;
-      }
     }
 
     &__copy-btn {
