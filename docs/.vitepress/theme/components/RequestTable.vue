@@ -9,28 +9,7 @@
       </tr>
       </thead>
       <tbody>
-
-<!--      <template v-for="item in data" :key="item.key">-->
-<!--        <tr :class="{ 'has-children': item.children }">-->
-<!--          <td style="white-space: nowrap">-->
-<!--            <request-table-property :property="item" />-->
-<!--          </td>-->
-<!--          <td>{{ item.description }}</td>-->
-<!--        </tr>-->
-
-<!--        <template v-if="item.children">-->
-<!--          <tr v-for="childItem in item.children" class="has-children">-->
-<!--            <td class="is-child" style="white-space: nowrap">-->
-<!--              <request-table-property :property="childItem" is-child />-->
-<!--            </td>-->
-<!--            <td>-->
-<!--              {{ childItem.description }}-->
-<!--            </td>-->
-<!--          </tr>-->
-<!--        </template>-->
-<!--      </template>-->
-
-      <request-table-row :data="data" />
+        <request-table-row :data="data" />
       </tbody>
     </table>
 
@@ -42,7 +21,7 @@
 
 <script lang="ts" setup>
   import { defineProps, ref } from 'vue'
-  import RequestTableRow from "./RequestTableRow.vue"
+  import RequestTableRow from './RequestTableRow.vue'
 
   const { data, title, postfix } = defineProps({
     data: {
@@ -57,7 +36,18 @@
   })
 
   const isOpen = ref(false)
-  const isCollapsable = data.length > 7
+
+  let isCollapsable = false
+
+  if (data.length > 7) {
+    isCollapsable = true
+  } else {
+    data.forEach(item => {
+      if (item.children && item.children.length > 7) {
+        isCollapsable = true
+      }
+    })
+  }
 </script>
 
 <style lang="scss">
