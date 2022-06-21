@@ -5,7 +5,6 @@
       <thead>
       <tr>
         <th style="text-align: left;">Свойство</th>
-        <th>Тип</th>
         <th style="text-align: left;">Описание</th>
       </tr>
       </thead>
@@ -14,25 +13,19 @@
       <template v-for="item in data" :key="item.key">
         <tr :class="{ 'has-children': item.children }">
           <td style="white-space: nowrap">
-            <b style="margin-right: 5px;">{{ item.key }}</b>
-
-            <span v-if="item.required" class="badge badge-warning">required</span>
-            <span v-if="item.optional" class="badge badge-primary">optional</span>
+            <request-table-property :property="item" />
           </td>
-          <td style="font-size: 12px; text-align: center"><code>{{ item.type }}</code></td>
           <td>{{ item.description }}</td>
         </tr>
 
         <template v-if="item.children">
           <tr v-for="childItem in item.children" class="has-children">
-            <td style="white-space: nowrap">&nbsp; &nbsp;
-              <b style="margin-right: 5px;">> {{ childItem.key }}</b>
-
-              <span v-if="childItem.required" class="badge badge-warning">required</span>
-              <span v-if="childItem.optional" class="badge badge-primary">optional</span>
+            <td class="is-child" style="white-space: nowrap">
+              <request-table-property :property="childItem" is-child />
             </td>
-            <td style="font-size: 12px; text-align: center"><code>{{ childItem.type }}</code></td>
-            <td>{{ childItem.description }}</td>
+            <td>
+              {{ childItem.description }}
+            </td>
           </tr>
         </template>
       </template>
@@ -47,6 +40,7 @@
 
 <script lang="ts" setup>
   import { defineProps, ref } from 'vue'
+  import RequestTableProperty from "./RequestTableProperty.vue";
 
   const { data, title, postfix } = defineProps({
     data: {
@@ -112,6 +106,10 @@
         transition: 500ms ease;
         pointer-events: none;
       }
+
+      td.is-child {
+        padding-left: 36px;
+      }
     }
 
 
@@ -123,7 +121,11 @@
     }
 
     &:not(.collapsed) table {
-      max-height: 3000px;
+      max-height: 10000px;
+    }
+
+    &__enum {
+      font-size: 12px;
     }
 
     &__collapse-btn {

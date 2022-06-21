@@ -44,7 +44,7 @@ export default {
         {
             key: 'title',
             type: 'String',
-            description: 'Загаловок (наименование) товара на сайте',
+            description: 'Наименование товара на сайте',
             required: true,
         },
         {
@@ -57,13 +57,15 @@ export default {
             key: 'materials',
             type: 'String',
             description: 'Описание состава товара',
-            optional: true
+            optional: true,
+            example: '30% полиэстер, 70% хлопок'
         },
         {
             key: 'seasons',
             type: 'Array',
-            description: 'Определяет сезонность товара',
-            optional: true
+            description: 'Определяет сезон товара',
+            optional: true,
+            enums: ['spring', 'summer', 'autumn', 'winter']
         },
         {
             key: 'categoryId',
@@ -102,6 +104,7 @@ export default {
             type: 'String',
             description: 'Единица измерения товара',
             required: true,
+            enums: ['шт', 'комплект', 'пара', 'упаковка']
         },
         {
             key: 'ikpu',
@@ -112,13 +115,13 @@ export default {
         {
             key: 'price',
             type: 'Number',
-            description: 'Стоимость товара (UZS)',
+            description: 'Цена товара (UZS)',
             required: true,
         },
         {
             key: 'sale',
             type: 'Number',
-            description: 'Стоимость товара со скидкой (UZS)',
+            description: 'Цена товара со скидкой (UZS)',
             required: true,
         },
         {
@@ -138,12 +141,14 @@ export default {
             type: 'String',
             description: 'Определяет форму сотрудничества товара',
             required: true,
+            enums: ['FBO', 'FBS', 'RETAIL']
         },
         {
             key: 'gender',
             type: 'String',
             description: 'Определяет гендер товара',
-            optional: true
+            optional: true,
+            enums: ['male', 'female', 'unisex', 'none']
         },
         {
             key: 'supplier',
@@ -214,6 +219,7 @@ export default {
                     type: 'String',
                     description: 'Значение размера',
                     required: true,
+                    example: 'XL'
                 },
                 {
                     key: 'count',
