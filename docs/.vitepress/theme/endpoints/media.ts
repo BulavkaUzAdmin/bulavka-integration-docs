@@ -5,7 +5,8 @@ export const addMedia = {
         {
             key: 'type',
             type: 'String',
-            description: 'Данный параметр определяет тип фото'
+            description: 'Данный параметр определяет тип фото',
+            required: true
         }
     ]
 }
@@ -17,14 +18,16 @@ export const replaceMedia = {
         {
             key: 'fileName',
             type: 'String',
-            description: 'Наименование файла на диске (хеш)'
+            description: 'Наименование файла на диске (хеш)',
+            required: true
         }
     ],
     queryParams: [
         {
             key: 'type',
             type: 'String',
-            description: 'Данный параметр определяет тип фото'
+            description: 'Данный параметр определяет тип фото',
+            optional: true
         }
     ]
 }
@@ -36,7 +39,8 @@ export const removeMedia = {
         {
             key: 'fileName',
             type: 'String',
-            description: 'Наименование файла на диске (хеш)'
+            description: 'Наименование файла на диске (хеш)',
+            required: true
         }
     ],
 }

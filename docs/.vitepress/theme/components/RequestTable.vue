@@ -14,15 +14,10 @@
       <template v-for="item in data" :key="item.key">
         <tr :class="{ 'has-children': item.children }">
           <td style="white-space: nowrap">
-            <b style="margin-right: 4px;">{{ item.key }}</b>
+            <b style="margin-right: 5px;">{{ item.key }}</b>
 
-            <span v-if="item.required" class="badge badge-warning">
-              required
-            </span>
-
-            <span v-if="item.optional" class="badge badge-primary">
-              optional
-            </span>
+            <span v-if="item.required" class="badge badge-warning">required</span>
+            <span v-if="item.optional" class="badge badge-primary">optional</span>
           </td>
           <td style="font-size: 12px; text-align: center"><code>{{ item.type }}</code></td>
           <td>{{ item.description }}</td>
@@ -31,7 +26,10 @@
         <template v-if="item.children">
           <tr v-for="childItem in item.children" class="has-children">
             <td style="white-space: nowrap">&nbsp; &nbsp;
-              <b>> {{ childItem.key }}</b>
+              <b style="margin-right: 5px;">> {{ childItem.key }}</b>
+
+              <span v-if="childItem.required" class="badge badge-warning">required</span>
+              <span v-if="childItem.optional" class="badge badge-primary">optional</span>
             </td>
             <td style="font-size: 12px; text-align: center"><code>{{ childItem.type }}</code></td>
             <td>{{ childItem.description }}</td>
@@ -76,11 +74,14 @@
   }
 
   .badge {
-    padding: 2px;
+    padding: 2px 4px;
     border-radius: 4px;
-    font-size: 12px;
+    font-size: 10px;
+    font-weight: bold;
     text-align: center;
     line-height: 1;
+    position: relative;
+    top: -4px;
   }
 
   .badge-primary {

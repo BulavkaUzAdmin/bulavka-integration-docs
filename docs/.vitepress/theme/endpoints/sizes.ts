@@ -5,7 +5,8 @@ export const sizesByCategory = {
         {
             key: 'id',
             type: 'Number',
-            description: 'ID категории'
+            description: 'ID категории',
+            required: true
         }
     ]
 }

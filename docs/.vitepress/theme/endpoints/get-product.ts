@@ -5,7 +5,8 @@ export default {
         {
             key: 'id',
             type: 'Number',
-            description: 'ID товара'
+            description: 'ID товара',
+            required: true
         }
     ]
 }

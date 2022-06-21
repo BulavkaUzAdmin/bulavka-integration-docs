@@ -6,6 +6,7 @@ export const parametersByCategory = {
             key: 'id',
             type: 'String',
             description: 'ID категории',
+            required: true
         }
     ]
 }
